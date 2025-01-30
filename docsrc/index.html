@@ -103,68 +103,68 @@ function grid (svg, size=10, width=100, height=100) {
         group.appendChild(line);
     }
 
-    for (var i = size; i < height; i = i + size) {
-        let line = document.createElementNS(svgns, "line");
-        line.setAttribute("x1", 0);
-        line.setAttribute("y1", i);         
-        line.setAttribute("x2", width);
-        line.setAttribute("y2", i);
-        group.appendChild(line);        
-    }            
+for (var i = size; i < height; i = i + size) {
+    let line = document.createElementNS(svgns, "line");
+    line.setAttribute("x1", 0);
+    line.setAttribute("y1", i);         
+    line.setAttribute("x2", width);
+    line.setAttribute("y2", i);
+    group.appendChild(line);        
+}            
 
-    svg.appendChild(group);
-    return svg;
+svg.appendChild(group);
+return svg;
 } 
 
-        </script>
+    </script>
 
-    </head>
-    <body>
-        <main>
+</head>
+<body>
+    <main>
 
 
 <svg id="25" viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg">
-    <rect x="0" y="0" width="28" height="4" fill="url(#x)"/>
-    <rect x="0" y="8" width="12" height="4" fill="url(#x)"/>
-    <rect x="16" y="8" width="12" height="4" fill="url(#x)"/>
-    <rect x="4" y="16" width="20" height="4" fill="url(#x)"/>
-    <rect x="0" y="24" width="28" height="4" fill="url(#x)"/>
+<rect x="0" y="0" width="28" height="4" fill="url(#x)"/>
+<rect x="0" y="8" width="12" height="4" fill="url(#x)"/>
+<rect x="16" y="8" width="12" height="4" fill="url(#x)"/>
+<rect x="4" y="16" width="20" height="4" fill="url(#x)"/>
+<rect x="0" y="24" width="28" height="4" fill="url(#x)"/>
 </svg>
 
 <svg id="25b" viewBox="0 0 28 20" xmlns="http://www.w3.org/2000/svg">
-    <rect x="0" y="0" width="28" height="4" fill="url(#x)"/>
-    <rect x="12" y="4" width="4" height="4" fill="url(#x)"/>
-    <rect x="0" y="8" width="4" height="4" fill="url(#x)"/>
-    <rect x="24" y="8" width="4" height="4" fill="url(#x)"/>
-    <rect x="0" y="12" width="28" height="4" fill="url(#x)"/>
+<rect x="0" y="0" width="28" height="4" fill="url(#x)"/>
+<rect x="12" y="4" width="4" height="4" fill="url(#x)"/>
+<rect x="0" y="8" width="4" height="4" fill="url(#x)"/>
+<rect x="24" y="8" width="4" height="4" fill="url(#x)"/>
+<rect x="0" y="12" width="28" height="4" fill="url(#x)"/>
 </svg>
 
 <svg id="2025" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
-    <defs>
-        <symbol id="comp" viewBox="0 0 16 8">
-            <rect x="0" y="0" width="16" height="4" fill="url(#x)"/>
-            <rect x="12" y="4" width="4" height="4" fill="url(#x)"/>
-        </symbol>
-        <symbol id="comp2" viewBox="0 0 16 16">
-            <use x="0" y="0" width="16" height="8" href="#comp"/>
-            <use x="0" y="8" width="16" height="8" href="#comp" transform="rotate(180, 8, 12 )"/>
-        </symbol>
-    </defs>
-    <use x="0" y="0" width="16" height="16" href="#comp2"/>
-    <use x="20" y="0" width="16" height="16" href="#comp2" 
-         transform="rotate(90, 28, 8)"/>
-    <use x="0" y="20" width="16" height="16" href="#comp2"/>
-    <use x="20" y="20" width="16" height="16" href="#comp2"
-         transform="translate(28, 0) scale(-1, 1) translate(-28, 0)"/>
+<defs>
+    <symbol id="comp" viewBox="0 0 16 8">
+        <rect x="0" y="0" width="16" height="4" fill="url(#x)"/>
+        <rect x="12" y="4" width="4" height="4" fill="url(#x)"/>
+    </symbol>
+    <symbol id="comp2" viewBox="0 0 16 16">
+        <use x="0" y="0" width="16" height="8" href="#comp"/>
+        <use x="0" y="8" width="16" height="8" href="#comp" transform="rotate(180, 8, 12 )"/>
+    </symbol>
+</defs>
+<use x="0" y="0" width="16" height="16" href="#comp2"/>
+<use x="20" y="0" width="16" height="16" href="#comp2" 
+     transform="rotate(90, 28, 8)"/>
+<use x="0" y="20" width="16" height="16" href="#comp2"/>
+<use x="20" y="20" width="16" height="16" href="#comp2"
+     transform="translate(28, 0) scale(-1, 1) translate(-28, 0)"/>
 </svg>
 
 
-<p clas="copyright">&copy; <span id="cwyear">2025</span> reflexion</p>
+<p clas="copyright">&copy; <span id="cwyear">2025</span> <a href="https://github.com/ajsmith607/reflexion">github.com/ajsmith607/reflexion </a></p>
 
 </main>
 
-        <script> 
-            document.addEventListener('DOMContentLoaded', () => {
+    <script> 
+        document.addEventListener('DOMContentLoaded', () => {
                 const svg = document.getElementById("25");
                 addx(svg, 4);
                 grid(svg, 4, 28, 28);
