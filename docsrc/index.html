@@ -3,13 +3,9 @@
     <head>
         <meta charset="UTF-8">
         <title>reflexion</title>
-        <meta name="description" content="a logotype journey">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name=”robots” content="index, follow">
-        <link rel="stylesheet" href="assets/css/main.css"/> 
-        <link rel="stylesheet" href="assets/css/print.css"/> 
-        <script src="assets/js/main.js"></script>
         <script>
             // in development, load the livereload script 
             if (window.location.hostname === "localhost") {
@@ -19,35 +15,47 @@
             } 
         </script>
         <style>
-            :root {
-                --font-family: Tahoma, Verdana, Segoe, sans-serif;
-                --font-size: 20px;
-                --mobile-font-size: calc( var(--font-size) * 0.75 ); 
-                --line-height-unitless: 1.5;
-                --line-height: calc( var(--line-height-unitless) * 1rem);
-                --line-length: 40;
-                --max-width: 500px;  
-                --background-color: #94BAF4;
+            @font-face {
+                font-family: 'Archia';
+                src: url('assets/fonts/archia-regular-webfont.woff2') format('woff2'),
+                     url('assets/fonts/archia-regular-webfont.woff') format('woff');
+                font-weight: normal;
+                font-style: normal;
+            }
+            body {
+                --background-color: #94baf4;
                 --color: white;
-            }
-            main {
+                font-family: 'Archia', sans-serif;
+                background-color: var(--background-color);
+                color: var(--color);
                 text-align: center;
-                padding-bottom: 1rem;
             }
-            svg { 
+            a { text-decoration: none; color: var(--color); }
+            a:hover { text-decoration: underline; }
+            figure { 
                 display: block;
+                max-width: 500px;
                 padding-top: 10rem;
                 padding-bottom: 12rem;
                 margin: auto;
-                max-width: var(--max-width);
+            }
+            figcaption { 
+                font-size: 48px; 
+                padding-top: 4rem; 
+                padding-bottom: 1rem; 
             }
             rect { fill: var(--color); }
             line {
                 stroke: var(--background-color);
                 stroke-width: .25;
             }
+            footer { font-size: 24px; }
+            @media only screen and (max-width: 800px) {
+                figure { max-width: 60%; }
+                figcaption { font-size: 36px; }
+                footer { font-size: 18px; }
+            }
         </style>
-
         <script>
 
 const svgns = "http://www.w3.org/2000/svg";
@@ -122,7 +130,7 @@ return svg;
 <body>
     <main>
 
-
+<figure>
 <svg id="25" viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg">
 <rect x="0" y="0" width="28" height="4" fill="url(#x)"/>
 <rect x="0" y="8" width="12" height="4" fill="url(#x)"/>
@@ -130,15 +138,21 @@ return svg;
 <rect x="4" y="16" width="20" height="4" fill="url(#x)"/>
 <rect x="0" y="24" width="28" height="4" fill="url(#x)"/>
 </svg>
+<figcaption>emerge</figcaption>
+</figure>
 
-<svg id="25b" viewBox="0 0 28 20" xmlns="http://www.w3.org/2000/svg">
+<figure>
+<svg id="25b" viewBox="0 0 28 16" xmlns="http://www.w3.org/2000/svg">
 <rect x="0" y="0" width="28" height="4" fill="url(#x)"/>
 <rect x="12" y="4" width="4" height="4" fill="url(#x)"/>
 <rect x="0" y="8" width="4" height="4" fill="url(#x)"/>
 <rect x="24" y="8" width="4" height="4" fill="url(#x)"/>
 <rect x="0" y="12" width="28" height="4" fill="url(#x)"/>
 </svg>
+<figcaption>integrate</figcaption>
+</figure>
 
+<figure>
 <svg id="2025" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
 <defs>
     <symbol id="comp" viewBox="0 0 16 8">
@@ -157,11 +171,14 @@ return svg;
 <use x="20" y="20" width="16" height="16" href="#comp2"
      transform="translate(28, 0) scale(-1, 1) translate(-28, 0)"/>
 </svg>
-
-
-<p class="copyright">&copy; <span id="cwyear">2025</span> <a href="https://github.com/ajsmith607/reflexion">github.com/ajsmith607/reflexion </a></p>
+<figcaption>grow</figcaption>
+</figure>
 
 </main>
+
+<footer>
+<p class="copyright">&copy; <span id="cwyear">2025</span> <a href="https://github.com/ajsmith607/reflexion">github.com/ajsmith607/reflexion </a></p>
+</footer>
 
     <script> 
         document.addEventListener('DOMContentLoaded', () => {
