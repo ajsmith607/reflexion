@@ -57,7 +57,7 @@
                 footer { font-size: 18px; }
             }
         </style>
-        <script>
+    <script>
 
 const svgns = "http://www.w3.org/2000/svg";
 function initsvg(svgcontainername, svgsize) {
@@ -112,17 +112,17 @@ function grid (svg, size=10, width=100, height=100) {
         group.appendChild(line);
     }
 
-for (var i = size; i < height; i = i + size) {
-    let line = document.createElementNS(svgns, "line");
-    line.setAttribute("x1", 0);
-    line.setAttribute("y1", i);         
-    line.setAttribute("x2", width);
-    line.setAttribute("y2", i);
-    group.appendChild(line);        
-}            
+    for (var i = size; i < height; i = i + size) {
+        let line = document.createElementNS(svgns, "line");
+        line.setAttribute("x1", 0);
+        line.setAttribute("y1", i);         
+        line.setAttribute("x2", width);
+        line.setAttribute("y2", i);
+        group.appendChild(line);        
+    }            
 
-svg.appendChild(group);
-return svg;
+    svg.appendChild(group);
+    return svg;
 } 
 
     </script>
@@ -132,7 +132,7 @@ return svg;
     <main>
 
 <figure>
-<svg id="25" viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg">
+<svg id="emerge" viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg">
 <rect x="0" y="0" width="28" height="4" fill="url(#x)"/>
 <rect x="0" y="8" width="12" height="4" fill="url(#x)"/>
 <rect x="16" y="8" width="12" height="4" fill="url(#x)"/>
@@ -143,7 +143,7 @@ return svg;
 </figure>
 
 <figure>
-<svg id="25b" viewBox="0 0 28 16" xmlns="http://www.w3.org/2000/svg">
+<svg id="integrate" viewBox="0 0 28 16" xmlns="http://www.w3.org/2000/svg">
 <rect x="0" y="0" width="28" height="4" fill="url(#x)"/>
 <rect x="12" y="4" width="4" height="4" fill="url(#x)"/>
 <rect x="0" y="8" width="4" height="4" fill="url(#x)"/>
@@ -154,7 +154,7 @@ return svg;
 </figure>
 
 <figure>
-<svg id="2025" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
+<svg id="grow" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
 <defs>
     <symbol id="comp" viewBox="0 0 16 8">
         <rect x="0" y="0" width="16" height="4" fill="url(#x)"/>
@@ -183,15 +183,15 @@ return svg;
 
     <script> 
         document.addEventListener('DOMContentLoaded', () => {
-                const svg = document.getElementById("25");
+                const svg = document.getElementById("emerge");
                 addx(svg, 4);
                 grid(svg, 4, 28, 28);
                 
-                const svg2 = document.getElementById("25b");
+                const svg2 = document.getElementById("integrate");
                 addx(svg2, 4);
                 grid(svg2, 4, 28, 20);
 
-                const svg3 = document.getElementById("2025");
+                const svg3 = document.getElementById("grow");
                 addx(svg3, 4);
                 grid(svg3, 4, 36, 36);
             });
