@@ -1,3 +1,3 @@
-a logotype nano-exhibit
+logotype nano-exhibit
 
 ![reflection](screen.png)
