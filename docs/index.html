@@ -1,1 +1,172 @@
-<!DOCTYPE html><html lang="en-us"><head><meta charset="UTF-8"><title>reflexion</title><meta name="description" content="a logotype nano-exhibit"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="”robots”" content="index, follow"><script>var script;"localhost"===window.location.hostname&&((script=document.createElement("script")).src="http://localhost:35729/livereload.js",document.head.appendChild(script))</script><style>@font-face{font-family:Archia;src:url(assets/fonts/archia-regular-webfont.woff2) format('woff2'),url(assets/fonts/archia-regular-webfont.woff) format('woff');font-weight:400;font-style:normal}body{--background-color:#94baf4;--color:white;font-family:Archia,sans-serif;background-color:var(--background-color);color:var(--color);text-align:center}a{text-decoration:none;color:var(--color)}a:hover{text-decoration:underline}figure{display:block;max-width:500px;padding-top:10rem;padding-bottom:12rem;margin:auto}figcaption{font-size:48px;padding-top:4rem;padding-bottom:1rem}rect{fill:var(--color)}line{stroke:var(--background-color);stroke-width:.25}footer{font-size:24px}@media only screen and (max-width:800px){figure{max-width:60%}figcaption{font-size:36px}footer{font-size:18px}}</style><script>let svgns="http://www.w3.org/2000/svg";function initsvg(t,e){for(var t=document.querySelector(t),r=t.getElementsByTagName("svg"),n=0;n<r.length;n++)r[n].remove();var s=document.createElementNS(svgns,"svg"),e=(s.setAttribute("width",e),s.setAttribute("height",e),2*radius),e=2+e;return s.setAttribute("viewBox",[-1,-1,e,e].join(" ")),t.prepend(s),s}function addx(t,e){var r=document.createElementNS(svgns,"defs"),n=document.createElementNS(svgns,"pattern"),s=(n.setAttribute("id","x"),n.setAttribute("patternUnits","userSpaceOnUse"),n.setAttribute("width",e),n.setAttribute("height",e),document.createElementNS(svgns,"rect"));s.setAttribute("class","xrect"),s.setAttribute("x","0"),s.setAttribute("y","0"),s.setAttribute("width",e),s.setAttribute("height",e),n.appendChild(s),r.appendChild(n),t.appendChild(r)}function grid(t,e=10,r=100,n=100){for(var s=document.createElementNS(svgns,"g"),i=e;i<r;i+=e){var u=document.createElementNS(svgns,"line");u.setAttribute("x1",i),u.setAttribute("y1",0),u.setAttribute("x2",i),u.setAttribute("y2",n),s.appendChild(u)}for(i=e;i<n;i+=e){var d=document.createElementNS(svgns,"line");d.setAttribute("x1",0),d.setAttribute("y1",i),d.setAttribute("x2",r),d.setAttribute("y2",i),s.appendChild(d)}return t.appendChild(s),t}</script></head><body><main><figure><svg id="emerge" viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg"><rect x="0" y="0" width="28" height="4" fill="url(#x)"/><rect x="0" y="8" width="12" height="4" fill="url(#x)"/><rect x="16" y="8" width="12" height="4" fill="url(#x)"/><rect x="4" y="16" width="20" height="4" fill="url(#x)"/><rect x="0" y="24" width="28" height="4" fill="url(#x)"/></svg><figcaption>emerge</figcaption></figure><figure><svg id="integrate" viewBox="0 0 28 16" xmlns="http://www.w3.org/2000/svg"><rect x="0" y="0" width="28" height="4" fill="url(#x)"/><rect x="12" y="4" width="4" height="4" fill="url(#x)"/><rect x="0" y="8" width="4" height="4" fill="url(#x)"/><rect x="24" y="8" width="4" height="4" fill="url(#x)"/><rect x="0" y="12" width="28" height="4" fill="url(#x)"/></svg><figcaption>integrate</figcaption></figure><figure><svg id="grow" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><defs><symbol id="comp" viewBox="0 0 16 8"><rect x="0" y="0" width="16" height="4" fill="url(#x)"/><rect x="12" y="4" width="4" height="4" fill="url(#x)"/></symbol><symbol id="comp2" viewBox="0 0 16 16"><use x="0" y="0" width="16" height="8" href="#comp"/><use x="0" y="8" width="16" height="8" href="#comp" transform="rotate(180, 8, 12 )"/></symbol></defs><use x="0" y="0" width="16" height="16" href="#comp2"/><use x="20" y="0" width="16" height="16" href="#comp2" transform="rotate(90, 28, 8)"/><use x="0" y="20" width="16" height="16" href="#comp2"/><use x="20" y="20" width="16" height="16" href="#comp2" transform="translate(28, 0) scale(-1, 1) translate(-28, 0)"/></svg><figcaption>grow</figcaption></figure></main><footer><p class="copyright">&copy; <span id="cwyear">2025</span> <a href="https://github.com/ajsmith607/reflexion">github.com/ajsmith607/reflexion</a></p></footer><script>document.addEventListener("DOMContentLoaded",()=>{var e=document.getElementById("emerge"),e=(addx(e,4),grid(e,4,28,28),document.getElementById("integrate")),e=(addx(e,4),grid(e,4,28,20),document.getElementById("grow"));addx(e,4),grid(e,4,36,36)})</script></body></html>
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <meta charset="UTF-8">
+        <title>reflexion</title>
+        <meta name="description" content="logotype nano-exhibit">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name=”robots” content="index, follow">
+        <script>
+            // in development, load the livereload script 
+            if (window.location.hostname === "localhost") {
+                var script = document.createElement('script');
+                script.src = 'http://localhost:35729/livereload.js';
+                document.head.appendChild(script);
+            } 
+            function addsymbols(svg) {
+                const symbols = `  
+                    <defs>
+                        <symbol id="comp" viewBox="0 0 16 8">
+                            <rect x="0" y="0" width="16" height="4"/>
+                            <rect x="12" y="4" width="4" height="4"/>
+                        </symbol>
+                        <symbol id="compa" viewBox="0 0 16 16">
+                            <use x="0" y="0" width="16" height="8" href="#comp"/>
+                            <use x="0" y="8" width="16" height="8" href="#comp" 
+                                 transform="rotate(180, 8, 12 )"/>
+                        </symbol>
+                        <symbol id="compb" viewBox="0 0 16 16">
+                            <use x="0" y="0" width="16" height="16" href="#compa"
+                                 transform="translate(8, 0) scale(-1, 1) translate(-8, 0)"/>
+                        </symbol>
+                    </defs>
+                `;
+                svg.insertAdjacentHTML("afterbegin", symbols);
+            }
+            function addgrid(svg, size=10, width=100, height=100) {
+                const svgns = "http://www.w3.org/2000/svg";
+                let group = document.createElementNS(svgns, "g");
+                group.setAttribute("id", "grid");
+                            
+                for (var i = size; i < width; i = i + size) { 
+                    let line = document.createElementNS(svgns, "line");
+                    line.setAttribute("x1", i);
+                    line.setAttribute("y1", 0);
+                    line.setAttribute("x2", i);
+                    line.setAttribute("y2", height);
+                    group.appendChild(line);
+                }
+
+                for (var i = size; i < height; i = i + size) {
+                    let line = document.createElementNS(svgns, "line");
+                    line.setAttribute("x1", 0);
+                    line.setAttribute("y1", i);         
+                    line.setAttribute("x2", width);
+                    line.setAttribute("y2", i);
+                    group.appendChild(line);        
+                }            
+                svg.appendChild(group);
+            } 
+        </script>
+        <style>
+            @font-face {
+                font-family: 'Archia';
+                src: url('fonts/archia-regular-webfont.woff2') format('woff2'),
+                     url('fonts/archia-regular-webfont.woff') format('woff');
+            }
+            body {
+                --background-color: #94baf4;
+                --color: white;
+                font-family: 'Archia', sans-serif;
+                background-color: var(--background-color);
+                color: var(--color);
+                text-align: center;
+            }
+            a { text-decoration: none; color: var(--color); }
+            a:hover { text-decoration: underline; }
+            figure { 
+                display: block;
+                max-width: 400px;
+                padding-top: 10rem;
+                padding-bottom: 12rem;
+                margin: auto;
+            }
+            figcaption { 
+                font-size: 48px; 
+                padding-top: 2rem; 
+                padding-bottom: 1rem; 
+            }
+            rect { fill: var(--color); }
+            line {
+                stroke: var(--background-color);
+                stroke-width: .25;
+            }
+            footer { font-size: 24px; }
+            @media only screen and (max-width: 800px) {
+                figure { max-width: 60%; }
+                figcaption { font-size: 36px; }
+                footer { font-size: 18px; }
+            }
+        </style>
+    </head>
+    <body>
+        <main>
+            <figure>
+                <svg id="emerge" viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="0" y="0" width="28" height="4" />
+                    <rect x="0" y="8" width="12" height="4" />
+                    <rect x="16" y="8" width="12" height="4" />
+                    <rect x="4" y="16" width="20" height="4" />
+                    <rect x="0" y="24" width="28" height="4" />
+                </svg>
+                <figcaption>emerge</figcaption>
+            </figure>
+
+            <figure>
+                <svg id="integrate" viewBox="0 0 28 16" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="0" y="0" width="28" height="4"/>
+                    <rect x="12" y="4" width="4" height="4"/>
+                    <rect x="0" y="8" width="4" height="4"/>
+                    <rect x="24" y="8" width="4" height="4"/>
+                    <rect x="0" y="12" width="28" height="4"/>
+                </svg>
+                <figcaption>integrate</figcaption>
+            </figure>
+
+            <figure>
+                <svg id="grow" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
+                    <use x="0" y="0" width="16" height="16" href="#compa"/>
+                    <use x="20" y="0" width="16" height="16" href="#compa" 
+                         transform="rotate(90, 28, 8)"/>
+                    <use x="0" y="20" width="16" height="16" href="#compa"/>
+                    <use x="20" y="20" width="16" height="16" href="#compb"/>
+                </svg>
+                <figcaption>grow</figcaption>
+            </figure>
+
+            <figure>
+                <svg id="reflexion" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
+                    <use x="0" y="0" width="16" height="16" href="#compa"/>
+                    <use x="20" y="0" width="16" height="16" href="#compb"/> 
+                    <use x="0" y="20" width="16" height="16" href="#compb"/>
+                    <use x="20" y="20" width="16" height="16" href="#compa"/>
+                </svg>
+                <figcaption>reflexion</figcaption>
+            </figure>
+        </main>
+
+        <footer>
+            <p class="copyright">&copy; jan <span id="cwyear">2025</span> <a href="https://github.com/ajsmith607/reflexion">github.com/ajsmith607/reflexion </a></p>
+        </footer>
+
+        <script> 
+            document.addEventListener('DOMContentLoaded', () => {
+                const svg1 = document.getElementById("emerge");
+                addgrid(svg1, 4, 28, 28);
+                
+                const svg2 = document.getElementById("integrate");
+                addgrid(svg2, 4, 28, 20);
+
+                const svg3 = document.getElementById("grow");
+                addsymbols(svg3);
+                addgrid(svg3, 4, 36, 36);
+                
+                const svg4 = document.getElementById("reflexion");
+                addsymbols(svg4);
+            });
+        </script>
+
+    </body>
+</html> 
+

@@ -1,3 +1,3 @@
 logotype nano-exhibit
 
-![reflection](screen.png)
+![reflection](thumbnail.png)
