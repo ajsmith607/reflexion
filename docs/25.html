@@ -78,7 +78,7 @@
             figure { 
                 display: block;
                 max-width: 400px;
-                padding-top: 12rem;
+                padding-top: 8rem;
                 padding-bottom: 12rem;
                 margin: auto;
             }
@@ -102,48 +102,12 @@
     <body>
         <main>
             <figure>
-                <svg id="emerge" viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="0" y="0" width="28" height="4" />
-                    <rect x="0" y="8" width="12" height="4" />
-                    <rect x="16" y="8" width="12" height="4" />
-                    <rect x="4" y="16" width="20" height="4" />
-                    <rect x="0" y="24" width="28" height="4" />
-                </svg>
-                <figcaption>emerge</figcaption>
-            </figure>
-
-            <figure>
-                <svg id="integrate" viewBox="0 0 28 16" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="0" y="0" width="28" height="4"/>
-                    <rect x="12" y="4" width="4" height="4"/>
-                    <rect x="0" y="8" width="4" height="4"/>
-                    <rect x="24" y="8" width="4" height="4"/>
-                    <rect x="0" y="12" width="28" height="4"/>
-                </svg>
-                <figcaption>integrate</figcaption>
-            </figure>
-
-            <figure>
-                <svg id="grow" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
-                    <use x="0" y="0" width="16" height="16" href="#compa"/>
-                    <use x="20" y="0" width="16" height="16" href="#compa" 
-                         transform="rotate(90, 28, 8)"/>
+                <svg id="2025" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
                     <use x="0" y="20" width="16" height="16" href="#compa"/>
                     <use x="20" y="20" width="16" height="16" href="#compb"/>
                 </svg>
-                <figcaption>grow</figcaption>
+                <figcaption>2025</figcaption>
             </figure>
-
-            <figure>
-                <svg id="reflexion" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
-                    <use x="0" y="0" width="16" height="16" href="#compa"/>
-                    <use x="20" y="0" width="16" height="16" href="#compb"/> 
-                    <use x="0" y="20" width="16" height="16" href="#compb"/>
-                    <use x="20" y="20" width="16" height="16" href="#compa"/>
-                </svg>
-                <figcaption>reflexion</figcaption>
-            </figure>
-        </main>
 
         <footer>
             <p class="copyright">&copy; jan <span id="cwyear">2025</span> <a href="https://github.com/ajsmith607/reflexion">github.com/ajsmith607/reflexion </a></p>
@@ -151,18 +115,11 @@
 
         <script> 
             document.addEventListener('DOMContentLoaded', () => {
-                const svg1 = document.getElementById("emerge");
-                addgrid(svg1, 4, 28, 28);
                 
-                const svg2 = document.getElementById("integrate");
-                addgrid(svg2, 4, 28, 20);
-
-                const svg3 = document.getElementById("grow");
+                const svg3 = document.getElementById("2025");
                 addsymbols(svg3);
                 addgrid(svg3, 4, 36, 36);
                 
-                const svg4 = document.getElementById("reflexion");
-                addsymbols(svg4);
             });
         </script>
 
