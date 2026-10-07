@@ -66,34 +66,71 @@
                      url('fonts/archia-regular-webfont.woff') format('woff');
             }
             body {
-                --background-color: #94baf4;
-                --color: white;
+                --background-color: white;
+                --color: black;
+                margin: 0;
                 font-family: 'Archia', sans-serif;
-                background-color: var(--background-color);
-                color: var(--color);
                 text-align: center;
             }
             a { text-decoration: none; color: var(--color); }
             a:hover { text-decoration: underline; }
-            figure { 
-                display: block;
-                max-width: 400px;
-                padding-top: 12rem;
-                padding-bottom: 12rem;
-                margin: auto;
+
+            /* each section: full width, colored, figure resting slightly above center */
+            section {
+                position: relative;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                min-height: 120vh;
+                min-height: 120svh;
+                box-sizing: border-box;
+                padding-bottom: 10svh;
+                background-color: var(--background-color);
+                color: var(--color);
             }
-            figcaption { 
-                font-size: 48px; 
-                padding-top: 2rem; 
+            /* first and last sections are seen at rest (page top/bottom), so exactly one screen tall */
+            section:first-child, section:last-child { min-height: 100vh; min-height: 100svh; }
+
+            /* per-section colors, in oklch (perceptual lightness, chroma, hue):
+               all backgrounds share one lightness/chroma, so they match in luminosity
+               and intensity; every foreground sits the same lightness distance (--delta)
+               above or below its background, so contrast feels equal in every section */
+            section {
+                --bg-l: 0.70; --bg-c: 0.10;     /* background lightness, chroma */
+                --delta: 0.24;                  /* foreground lightness distance from background */
+                --background-color: oklch(var(--bg-l) var(--bg-c) var(--hue));
+                --color: oklch(calc(var(--bg-l) + var(--fg-dir) * var(--delta)) var(--fg-c) var(--fg-hue));
+            }
+            /* per section: --hue (background), --fg-hue, --fg-c (foreground chroma),
+               --fg-dir (1 = lighter than background, -1 = darker) */
+
+            /* winter thaw: cool steel blue, near-white */
+            section#four  { --hue: 245; --fg-hue: 245; --fg-c: 0.015; --fg-dir: 1; }
+
+            /* spring renewal: fresh green, lemon yellow */
+            section#three { --hue: 140; --fg-hue: 103; --fg-c: 0.13;  --fg-dir: 1; }
+
+            /* summer growth and vitality: tropical turquoise blue, golden sunshine
+               (smaller --delta: gold needs a slightly darker yellow to be vivid) */
+            section#two   { --hue: 215; --fg-hue: 92;  --fg-c: 0.15;  --fg-dir: 1; --delta: 0.20; }
+
+            /* autumn solemnity: burnt orange, brown */
+            section#one   { --hue: 55;  --fg-hue: 50;  --fg-c: 0.08;  --fg-dir: -1; }
+
+            figure { width: min(400px, 60%); margin: 0; }
+            figure svg { display: block; width: 100%; }
+            figcaption {
+                font-size: 48px;
+                padding-top: 2rem;
             }
             rect { fill: var(--color); }
             line {
                 stroke: var(--background-color);
-                stroke-width: .4;
+                stroke-width: .5;
             }
-            footer { font-size: 24px; }
+            /* pinned to the bottom of the last section, out of the flex flow so the figure stays put */
+            footer { font-size: 24px; position: absolute; bottom: 0; left: 0; right: 0; }
             @media only screen and (max-width: 800px) {
-                figure { max-width: 60%; }
                 figcaption { font-size: 36px; }
                 footer { font-size: 18px; }
             }
@@ -101,53 +138,60 @@
     </head>
     <body>
         <main>
-            <figure>
-                <svg id="emerge" viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="0" y="0" width="28" height="4" />
-                    <rect x="0" y="8" width="12" height="4" />
-                    <rect x="16" y="8" width="12" height="4" />
-                    <rect x="4" y="16" width="20" height="4" />
-                    <rect x="0" y="24" width="28" height="4" />
-                </svg>
-                <figcaption>emerge</figcaption>
-            </figure>
+            <section id="four">
+                <figure> 
+                    <svg id="emerge" viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="0" y="0" width="28" height="4" />
+                        <rect x="0" y="8" width="12" height="4" />
+                        <rect x="16" y="8" width="12" height="4" />
+                        <rect x="4" y="16" width="20" height="4" />
+                        <rect x="0" y="24" width="28" height="4" />
+                    </svg>
+                    <figcaption>emerge</figcaption>
+                </figure>
+            </section>
 
-            <figure>
-                <svg id="integrate" viewBox="0 0 28 16" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="0" y="0" width="28" height="4"/>
-                    <rect x="12" y="4" width="4" height="4"/>
-                    <rect x="0" y="8" width="4" height="4"/>
-                    <rect x="24" y="8" width="4" height="4"/>
-                    <rect x="0" y="12" width="28" height="4"/>
-                </svg>
-                <figcaption>integrate</figcaption>
-            </figure>
+            <section id="three">
+                <figure> 
+                    <svg id="integrate" viewBox="0 0 28 16" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="0" y="0" width="28" height="4"/>
+                        <rect x="12" y="4" width="4" height="4"/>
+                        <rect x="0" y="8" width="4" height="4"/>
+                        <rect x="24" y="8" width="4" height="4"/>
+                        <rect x="0" y="12" width="28" height="4"/>
+                    </svg>
+                    <figcaption>integrate</figcaption>
+                </figure>
+            </section>
 
-            <figure>
-                <svg id="grow" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
-                    <use x="0" y="0" width="16" height="16" href="#compa"/>
-                    <use x="20" y="0" width="16" height="16" href="#compa" 
-                         transform="rotate(90, 28, 8)"/>
-                    <use x="0" y="20" width="16" height="16" href="#compa"/>
-                    <use x="20" y="20" width="16" height="16" href="#compb"/>
-                </svg>
-                <figcaption>grow</figcaption>
-            </figure>
+            <section id="two">
+                <figure> 
+                    <svg id="grow" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
+                        <use x="0" y="0" width="16" height="16" href="#compa"/>
+                        <use x="20" y="0" width="16" height="16" href="#compa" 
+                             transform="rotate(90, 28, 8)"/>
+                        <use x="0" y="20" width="16" height="16" href="#compa"/>
+                        <use x="20" y="20" width="16" height="16" href="#compb"/>
+                    </svg>
+                    <figcaption>grow</figcaption>
+                </figure>
+            </section>
 
-            <figure>
-                <svg id="reflexion" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
-                    <use x="0" y="0" width="16" height="16" href="#compa"/>
-                    <use x="20" y="0" width="16" height="16" href="#compb"/> 
-                    <use x="0" y="20" width="16" height="16" href="#compb"/>
-                    <use x="20" y="20" width="16" height="16" href="#compa"/>
-                </svg>
-                <figcaption>reflexion</figcaption>
-            </figure>
+            <section id="one">
+                <figure>
+                    <svg id="reflexion" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
+                        <use x="0" y="0" width="16" height="16" href="#compa"/>
+                        <use x="20" y="0" width="16" height="16" href="#compb"/> 
+                        <use x="0" y="20" width="16" height="16" href="#compb"/>
+                        <use x="20" y="20" width="16" height="16" href="#compa"/>
+                    </svg>
+                    <figcaption>reflexion</figcaption>
+                </figure>
+                <footer>
+                    <p class="copyright">&copy; <a href="25.html">jan <span id="cwyear">2025</span></a> <a href="https://github.com/ajsmith607/reflexion">github.com/ajsmith607/reflexion </a></p>
+                </footer>
+            </section>
         </main>
-
-        <footer>
-            <p class="copyright">&copy; <a href="25.html">jan <span id="cwyear">2025</span></a> <a href="https://github.com/ajsmith607/reflexion">github.com/ajsmith607/reflexion </a></p>
-        </footer>
 
         <script> 
             document.addEventListener('DOMContentLoaded', () => {
