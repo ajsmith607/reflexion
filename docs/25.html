@@ -66,34 +66,54 @@
                      url('fonts/archia-regular-webfont.woff') format('woff');
             }
             body {
-                --background-color: #94baf4;
-                --color: white;
+                --background-color: white;
+                --color: black;
+                margin: 0;
                 font-family: 'Archia', sans-serif;
-                background-color: var(--background-color);
-                color: var(--color);
                 text-align: center;
             }
             a { text-decoration: none; color: var(--color); }
             a:hover { text-decoration: underline; }
-            figure { 
-                display: block;
-                max-width: 400px;
-                padding-top: 8rem;
-                padding-bottom: 12rem;
-                margin: auto;
+
+            /* full-screen section, colored, figure resting slightly above center */
+            section {
+                position: relative;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                min-height: 100vh;
+                min-height: 100svh;
+                box-sizing: border-box;
+                padding-bottom: 10svh;
+                background-color: var(--background-color);
+                color: var(--color);
             }
-            figcaption { 
-                font-size: 48px; 
-                padding-top: 2rem; 
+
+            /* colors in oklch, matching the "winter" section of index.html */
+            section {
+                --bg-l: 0.70; --bg-c: 0.10;     /* background lightness, chroma */
+                --delta: 0.24;                  /* foreground lightness distance from background */
+                --background-color: oklch(var(--bg-l) var(--bg-c) var(--hue));
+                --color: oklch(calc(var(--bg-l) + var(--fg-dir) * var(--delta)) var(--fg-c) var(--fg-hue));
+            }
+
+            /* winter thaw: cool steel blue, near-white */
+            section#four { --hue: 245; --fg-hue: 245; --fg-c: 0.015; --fg-dir: 1; }
+
+            figure { width: min(400px, 60%); margin: 0; }
+            figure svg { display: block; width: 100%; }
+            figcaption {
+                font-size: 48px;
+                padding-top: 2rem;
             }
             rect { fill: var(--color); }
             line {
                 stroke: var(--background-color);
                 stroke-width: .4;
             }
-            footer { font-size: 24px; }
+            /* pinned to the bottom of the section, out of the flex flow so the figure stays put */
+            footer { font-size: 24px; position: absolute; bottom: 0; left: 0; right: 0; }
             @media only screen and (max-width: 800px) {
-                figure { max-width: 60%; }
                 figcaption { font-size: 36px; }
                 footer { font-size: 18px; }
             }
@@ -101,17 +121,19 @@
     </head>
     <body>
         <main>
-            <figure>
-                <svg id="2025" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
-                    <use x="0" y="20" width="16" height="16" href="#compa"/>
-                    <use x="20" y="20" width="16" height="16" href="#compb"/>
-                </svg>
-                <figcaption>2025</figcaption>
-            </figure>
-
-        <footer>
-            <p class="copyright">&copy; <a href="index.html">jan <span id="cwyear">2025</span></a> <a href="https://github.com/ajsmith607/reflexion">github.com/ajsmith607/reflexion </a></p>
-        </footer>
+            <section id="four">
+                <figure>
+                    <svg id="2025" viewBox="0 20 36 16" xmlns="http://www.w3.org/2000/svg">
+                        <use x="0" y="20" width="16" height="16" href="#compa"/>
+                        <use x="20" y="20" width="16" height="16" href="#compb"/>
+                    </svg>
+                    <figcaption>2025</figcaption>
+                </figure>
+                <footer>
+                    <p class="copyright">&copy; <a href="index.html">jan <span id="cwyear">2025</span></a> <a href="https://github.com/ajsmith607/reflexion">github.com/ajsmith607/reflexion </a></p>
+                </footer>
+            </section>
+        </main>
 
         <script> 
             document.addEventListener('DOMContentLoaded', () => {
